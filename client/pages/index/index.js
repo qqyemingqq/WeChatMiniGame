@@ -216,5 +216,9 @@ Page({
         }
         util.showBusy('信道连接中...')
         this.setData({ tunnelStatus: 'closed' })
+    },
+    clickIt(){
+      util.showSuccess('我爱青青')
+      console.log(".clickIt")
     }
 })
