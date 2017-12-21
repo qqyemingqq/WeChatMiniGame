@@ -1,0 +1,6 @@
+<view  class="expressInput">
+<input placeholder="请输入快递单号" style='padding: 0 0 0 40rpx;'></input>
+</view>
+<view class="expressInput text" bindtap="query">
+<text class="text">查询</text>
+</view>
