@@ -1,4 +1,4 @@
-// pages/toolList/toolList.js
+// pages/setting/setting.js
 Page({
 
   /**

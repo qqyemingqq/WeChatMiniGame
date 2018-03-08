@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/toolList/toolList",
+    "pages/setting/setting",
     "pages/addCgi/addCgi",
     "pages/queryExpress/queryExpress"
   ],
@@ -10,5 +12,28 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "res/ico-home.png",
+        "selectedIconPath": "res/ico-home-selected.png"
+      },
+      {
+        "pagePath": "pages/toolList/toolList",
+        "text": "列表",
+        "iconPath": "res/ico-list.png",
+        "selectedIconPath": "res/ico-list-selected.png"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "设置",
+        "iconPath": "res/ico-setting.png",
+        "selectedIconPath": "res/ico-setting-selected.png"
+      }
+    ]
   }
 }
