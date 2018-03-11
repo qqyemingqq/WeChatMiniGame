@@ -4,6 +4,8 @@
     "pages/toolList/toolList",
     "pages/setting/setting",
     "pages/addCgi/addCgi",
+    "pages/tools/cryptoChat/cryptoChat",
+    "pages/tools/majongCalc/majongCalc",
     "pages/queryExpress/queryExpress"
   ],
   "window":{
@@ -29,7 +31,7 @@
         "selectedIconPath": "res/ico-list-selected.png"
       },
       {
-        "pagePath": "pages/setting/setting",
+        "pagePath": "pages/tools/cryptoChat/cryptoChat",
         "text": "设置",
         "iconPath": "res/ico-setting.png",
         "selectedIconPath": "res/ico-setting-selected.png"

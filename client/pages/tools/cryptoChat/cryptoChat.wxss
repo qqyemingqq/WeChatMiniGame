@@ -1,0 +1,26 @@
+/* pages/tools/cryptoChat/cryptoChat.wxss */
+.btn-area{
+    text-align: center;
+}
+.optionBtn{
+    margin: 10rpx;
+    display: inline-block;
+}
+.cryptoButton1{
+    margin: 10rpx;
+    display: inline-block;
+}
+.cryptoButton2{
+    margin: 10rpx;
+    display: inline-block;
+}
+.cryptoButton3{
+    margin: 10rpx;
+    display: inline-block;
+}
+.cryptoText,.cryptoPassword{
+    width: 90%;
+    margin: 5%;
+    border: 2px solid #f6f7f8;
+    border-radius: 5px;
+}

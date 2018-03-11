@@ -1,0 +1,22 @@
+<!--pages/tools/cryptoChat/cryptoChat.wxml-->
+<text>pages/tools/cryptoChat/cryptoChat.wxml</text>
+<view class="section">
+  <textarea class="cryptoText" bindblur="bindTextBlur" placeholder="请输入需要加密或者解密的文本" auto-focus focus="{{true}}" value="{{crptoText}}"/>
+</view>
+  <view class="btn-area">
+    <button class="optionBtn" bindtap="copy">复制</button>
+    <button class="optionBtn" bindtap="paste">粘贴</button>
+    <button class="optionBtn" bindtap="empty">清空</button>
+</view>
+<view class="btn-area">
+  <button class="cryptoButton1" bindtap="encryptoMose">摩斯加密</button>
+  <button class="cryptoButton1" bindtap="decryptoMose">摩斯解密</button>
+</view>
+
+<view>
+<textarea class="cryptoPassword" data-id="123" placeholder="请输入密码" focus="{{true}}" auto-height="{{true}}"/>
+<view class="btn-area">
+  <button class="cryptoButton2" bindtap="encryptoPassword">密码加密</button>
+  <button class="cryptoButton2" bindtap="decryptoPassword">密码解密</button>
+</view>    
+</view>
