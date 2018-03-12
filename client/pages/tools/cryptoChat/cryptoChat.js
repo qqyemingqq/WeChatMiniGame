@@ -1,13 +1,14 @@
-// pages/tools/cryptoChat/cryptoChat.js
+var DES = require('../../../utils/DES.js');
+console.log(DES);
+console.log(DES.DESEncrypto('123',123));
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     crptoText: '',
     height: 20,
-    focus: false
+    focus: false,
   },
   copy: function (e) {
     console.log(e);
@@ -27,7 +28,7 @@ Page({
     console.log('paste');
     wx.getClipboardData({
       success: (res) => {
-        console.log('paste:'+res.data);
+        console.log('paste:' + res.data);
         this.setData({ crptoText: res.data });
       }
     })
@@ -36,16 +37,38 @@ Page({
     console.log(e.detail.value);
     this.setData({ crptoText: e.detail.value });
   },
-  encryptoMose:function(){
+  encryptoMose: function () {
+    var str = this.data.crptoText;
+    var strArr = str.split('');
+    var encryptoStr = '';
+    strArr.forEach((value, index) => {
+      encryptoStr += value.charCodeAt().toString(2);
+      if (index != this.lenth - 1) {
+        encryptoStr += ' ';
+      }
+    });
+    this.setData({
+      crptoText:encryptoStr.replace(/1/g,'-').replace(/0/g,'.')
+    })
+  },
+  decryptoMose: function () {
+    var strArr = this.data.crptoText.replace(/\-/g,'1').replace(/\./g,'0').split(' ');
+    var decryptoStr = '';
+    console.log(strArr);
+    strArr.forEach((value, index) => {
+      if(value!=''){
+        decryptoStr += String.fromCharCode(parseInt(value,2));
+      }
+    });
+    console.log(decryptoStr);
+    this.setData({
+      crptoText:decryptoStr
+    })
+  },
+  encryptoPassword: function () {
 
   },
-  decryptoMose:function(){
-
-  },
-  encryptoPassword:function(){
-
-  },
-  decryptoPassword:function(){
+  decryptoPassword: function () {
 
   },
 
