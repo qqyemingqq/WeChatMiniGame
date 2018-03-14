@@ -14,7 +14,7 @@
 </view>
 
 <view>
-<textarea class="cryptoPassword" data-id="123" placeholder="请输入密码" focus="{{true}}" auto-height="{{true}}"/>
+<textarea class="cryptoPassword" bindblur="bindPasswordBlur" data-id="123" placeholder="请输入密码(字母和数字)" focus="{{true}}" auto-height="{{true}}" value="{{password}}"/>
 <view class="btn-area">
   <button class="cryptoButton2" bindtap="encryptoPassword">密码加密</button>
   <button class="cryptoButton2" bindtap="decryptoPassword">密码解密</button>

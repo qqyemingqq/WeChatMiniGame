@@ -875,7 +875,7 @@ function DESEncrypto(msg, key) {
   // endata.value = enchex;
 
   var encStr = hexToBt64(enchex);
-  return ;
+  return encStr;
 }
 function DESDecrypto(encStr, key) {
   var eByte = new Array();

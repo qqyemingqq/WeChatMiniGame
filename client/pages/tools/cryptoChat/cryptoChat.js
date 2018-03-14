@@ -1,6 +1,5 @@
 var DES = require('../../../utils/DES.js');
-console.log(DES);
-console.log(DES.DESEncrypto('123',123));
+var base64 = require('../../../utils/base64.js');
 Page({
   /**
    * 页面的初始数据
@@ -9,6 +8,7 @@ Page({
     crptoText: '',
     height: 20,
     focus: false,
+    password: ''
   },
   copy: function (e) {
     console.log(e);
@@ -37,6 +37,10 @@ Page({
     console.log(e.detail.value);
     this.setData({ crptoText: e.detail.value });
   },
+  bindPasswordBlur: function (e) {
+    console.log(e.detail.value);
+    this.setData({ password: e.detail.value });
+  },
   encryptoMose: function () {
     var str = this.data.crptoText;
     var strArr = str.split('');
@@ -48,30 +52,53 @@ Page({
       }
     });
     this.setData({
-      crptoText:encryptoStr.replace(/1/g,'-').replace(/0/g,'.')
+      crptoText: encryptoStr.replace(/1/g, '-').replace(/0/g, '.')
     })
   },
   decryptoMose: function () {
-    var strArr = this.data.crptoText.replace(/\-/g,'1').replace(/\./g,'0').split(' ');
+    var strArr = this.data.crptoText.replace(/\-/g, '1').replace(/\./g, '0').split(' ');
     var decryptoStr = '';
     console.log(strArr);
     strArr.forEach((value, index) => {
-      if(value!=''){
-        decryptoStr += String.fromCharCode(parseInt(value,2));
+      if (value != '') {
+        decryptoStr += String.fromCharCode(parseInt(value, 2));
       }
     });
     console.log(decryptoStr);
     this.setData({
-      crptoText:decryptoStr
+      crptoText: decryptoStr
     })
   },
   encryptoPassword: function () {
-
+    if (this.data.crptoText == '' || this.data.password == '') {
+      this.emptyEnter();
+      return;
+    }
+    var en = DES.DESEncrypto(this.data.crptoText, this.data.password);
+    en = base64.btoa(en);
+    this.setData({
+      crptoText: en
+    })
   },
   decryptoPassword: function () {
-
+    if (this.data.crptoText == '' || this.data.password == '') {
+      this.emptyEnter();
+      return;
+    }
+    var en = base64.atob(this.data.crptoText);
+    en = DES.DESDecrypto(en, this.data.password);
+    console.log(this.data.crptoText, this.data.password,en);
+    this.setData({
+      crptoText: en
+    })
   },
-
+  emptyEnter: function () {
+    wx.showModal({
+      title:'提示',
+      content: '密码或内容为空',
+      showCancel: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
