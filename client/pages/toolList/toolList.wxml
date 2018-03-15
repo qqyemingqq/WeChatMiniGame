@@ -1,2 +1,7 @@
 <!--pages/toolList/toolList.wxml-->
-<text>pages/toolList/toolList.wxml</text>
+<template name="items" >
+    <navigator class='item' url="{{url}}" hover-class="navigator-hover"><image class="item_icon" src="{{icon}}" mode="aspectFit" binderror="" bindload=""></image>{{name}}</navigator>
+</template>
+<template is="items"  data="{{...tool1}}"/>
+<template is="items" data="{{...tool2}}"/>
+<template is="items" data="{{...tool3}}"/>

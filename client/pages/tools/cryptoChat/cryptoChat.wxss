@@ -1,4 +1,8 @@
 /* pages/tools/cryptoChat/cryptoChat.wxss */
+@import "../../index/index.wxss";
+.btn{
+  background-color: #fff;
+}
 .btn-area{
     text-align: center;
 }

@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    tool1:{
+      sort:'1',
+      name:'聊天文本加密',
+      icon:'../../res/item-cryptoChat.png',
+      url:'../tools/cryptoChat/cryptoChat'
+    },
+    tool2: {
+      sort: '2',
+      name: '麻将计分器',
+      icon:'../../res/item-calc.png',
+      url: '../tools/majongCalc/majongCalc'
+    },
+    tool3: {
+      sort: '3',
+      icon:'../../res/item-develop.png',
+      name: '以后添加',
+      url: ''
+    }
   },
 
   /**

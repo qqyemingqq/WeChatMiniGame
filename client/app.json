@@ -31,7 +31,7 @@
         "selectedIconPath": "res/ico-list-selected.png"
       },
       {
-        "pagePath": "pages/tools/cryptoChat/cryptoChat",
+        "pagePath": "pages/setting/setting",
         "text": "设置",
         "iconPath": "res/ico-setting.png",
         "selectedIconPath": "res/ico-setting-selected.png"
