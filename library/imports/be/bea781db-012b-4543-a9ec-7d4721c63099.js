@@ -2,7 +2,7 @@
 cc._RF.push(module, 'bea78HbAStFQ6nsfUchxjCZ', 'Config');
 // Script/Config.js
 
-"use strict";
+'use strict';
 
 // Learn cc.Class:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
@@ -13,7 +13,6 @@ cc._RF.push(module, 'bea78HbAStFQ6nsfUchxjCZ', 'Config');
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
 cc.Class({
     extends: cc.Component,
 
@@ -45,6 +44,13 @@ cc.Class({
         // cc.PhysicsManager.DrawBits.e_centerOfMassBit |
         // cc.PhysicsManager.DrawBits.e_jointBit |
         cc.PhysicsManager.DrawBits.e_shapeBit;
+        // var rectangle = new paper.Rectangle(cc.v2(50, 50), cc.v2(150, 100));
+        // console.log(rectangle);
+        console.log(new paper.Point(100, 70));
+        console.log(cc.v2(100, 70));
+        var path = new paper.Path.Circle(new paper.Point(100, 70), 50);
+        path.fillColor = 'red';
+        path.selected = true;
     },
     start: function start() {}
 }

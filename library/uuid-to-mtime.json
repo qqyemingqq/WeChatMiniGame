@@ -254,16 +254,6 @@
     "meta": 1527567562000,
     "relativePath": "Script"
   },
-  "2d2f792f-a40c-49bb-a189-ed176a246e49": {
-    "asset": 1536655382000,
-    "meta": 1536684288000,
-    "relativePath": "Scene/helloworld.fire"
-  },
-  "bea781db-012b-4543-a9ec-7d4721c63099": {
-    "asset": 1536650660000,
-    "meta": 1536684289000,
-    "relativePath": "Script/Config.js"
-  },
   "280c3aec-6492-4a9d-9f51-a9b00b570b4a": {
     "asset": 1535956624000,
     "meta": 1536684289000,
@@ -313,5 +303,30 @@
     "asset": 1531722964000,
     "meta": 1536684289000,
     "relativePath": "uiList_001.png"
+  },
+  "d0793361-01ba-4d30-aba4-6937acd00a04": {
+    "asset": 1536767814000,
+    "meta": 1536767814000,
+    "relativePath": "Plugins"
+  },
+  "992429b3-a52f-47e2-8c37-8f2ae3ccedb1": {
+    "asset": 1536767873000,
+    "meta": 1536768642000,
+    "relativePath": "PaperJS"
+  },
+  "e4baec2e-a16f-477a-8956-0ec67f4e2c43": {
+    "asset": 1520309052000,
+    "meta": 1536768697000,
+    "relativePath": "PaperJS/paper-full.js"
+  },
+  "2d2f792f-a40c-49bb-a189-ed176a246e49": {
+    "asset": 1536768687000,
+    "meta": 1536768688000,
+    "relativePath": "Scene/helloworld.fire"
+  },
+  "bea781db-012b-4543-a9ec-7d4721c63099": {
+    "asset": 1536776179000,
+    "meta": 1536776181000,
+    "relativePath": "Script/Config.js"
   }
 }
