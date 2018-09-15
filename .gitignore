@@ -43,3 +43,11 @@ typings/
 sh/
 # ignore test sdk.config.json
 sdk.config.json
+
+.idea
+
+*.meta
+
+build
+
+library

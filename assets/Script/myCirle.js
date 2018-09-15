@@ -37,7 +37,7 @@ cc.Class({
         ctx.circle(0, 0, this.foo);
         ctx.strokeColor = cc.Color.WHITE;
         ctx.fillColor = cc.Color.WHITE;
-        ctx.fill()
+        ctx.fill();
         ctx.stroke();
     },
 
