@@ -51,3 +51,6 @@ sdk.config.json
 build
 
 library
+library/*
+library/
+library/*.*

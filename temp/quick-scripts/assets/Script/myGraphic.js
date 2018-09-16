@@ -1,5 +1,5 @@
 (function() {"use strict";var __module = CC_EDITOR ? module : {exports:{}};var __filename = 'preview-scripts/assets/Script/myGraphic.js';var __require = CC_EDITOR ? function (request) {return cc.require(request, require);} : function (request) {return cc.require(request, __filename);};function __define (exports, require, module) {"use strict";
-cc._RF.push(module, 'e70c7DtRbZKAp91gOb5nK60', 'myGraphic', __filename);
+cc._RF.push(module, 'e15673gI11Ovpy5DQ5vDas+', 'myGraphic', __filename);
 // Script/myGraphic.js
 
 "use strict";
@@ -27,11 +27,11 @@ cc.Class({
         // },
         ctx: {
             get: function get() {
+                this._ctx = this.node.getComponent(cc.Graphics);
                 return this._ctx;
             },
             set: function set(value) {
                 this._ctx = value;
-                console.log(value);
             }
         }
     },
@@ -41,24 +41,43 @@ cc.Class({
         this.ctx = this.node.getComponent(cc.Graphics);
         this.ctx.lineWidth = 5;
         this.ctx.strokeColor = cc.Color.RED;
-        this.ctx.moveTo(200, 200);
-        this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onMouseDown, this.node, true);
-        console.log(this);
+        this.ctx.lineTo(500, 500);
+        this.ctx.lineTo(100, 100);
+        this.ctx.stroke();
+        this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onMouseDown, this.ctx, true);
+        this.node.on(cc.Node.EventType.MOUSE_UP, this.onMouseUp, this.ctx, true);
+        this.node.on(cc.Node.EventType.MOUSE_MOVE, this.onMouseMove, this.ctx, true);
+        console.log(this.ctx);
     },
     start: function start() {},
     onMouseDown: function onMouseDown(event) {
-        console.log(this.ctx);
-
+        // console.log(event.getLocation());
+        // this.moveTo(event.getLocation().x,event.getLocation().y);
+        // this.strokeColor = cc.Color.RED;
+        var c = this.getComponent(cc.PhysicsPolygonCollider);
+        this.startPosition = event.getLocation();
+        console.log(c.offset);
+        c.offset = cc.v2(this.startPosition.x, this.startPosition.y);
+        this.startDraw = true;
         // event.target.ctx.lineTo(event.getLocation());
     },
     onMouseUp: function onMouseUp(event) {
-        if (event.getButton() === 0) {
-            // console.log(event);
-        }
+        console.log(event);
+        // this.lineTo(event.getLocation().x,event.getLocation().y);
+        // this.stroke();
+        this.startDraw = false;
     },
-    onMouseMove: function onMouseMove(event) {}
-    // console.log(event);
-
+    onMouseMove: function onMouseMove(event) {
+        if (this.startDraw) {
+            this.clear();
+            this.moveTo(this.startPosition.x, this.startPosition.y);
+            this.lineTo(event.getLocation().x, event.getLocation().y);
+            this.stroke();
+            var c = this.getComponent(cc.PhysicsPolygonCollider);
+            console.log(c);
+            console.log(c.offset, this.startPosition, event.getLocation().x, event.getLocation().y);
+        }
+    }
     // update (dt) {},
 
 });

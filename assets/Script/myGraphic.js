@@ -21,14 +21,14 @@ cc.Class({
         //     serializable: true,   // optional, default is true
         // },
         ctx: {
-            get () {
+            get:function () {
+                this._ctx = this.node.getComponent(cc.Graphics);
                 return this._ctx;
             },
-            set (value) {
+            set:function (value) {
                 this._ctx = value;
-                console.log(value);
             }
-        },
+        }
     },
     // LIFE-CYCLE CALLBACKS:
 
@@ -36,26 +36,45 @@ cc.Class({
         this.ctx = this.node.getComponent(cc.Graphics);
         this.ctx.lineWidth = 5;
         this.ctx.strokeColor = cc.Color.RED;
-        this.ctx.moveTo(200,200);
-        this.node.on(cc.Node.EventType.MOUSE_DOWN,this.onMouseDown, this.node,true);
-        console.log(this);
+        this.ctx.lineTo(500,500)
+        this.ctx.lineTo(100,100)
+        this.ctx.stroke();
+        this.node.on(cc.Node.EventType.MOUSE_DOWN,this.onMouseDown, this.ctx,true);
+        this.node.on(cc.Node.EventType.MOUSE_UP,this.onMouseUp, this.ctx,true);
+        this.node.on(cc.Node.EventType.MOUSE_MOVE,this.onMouseMove, this.ctx,true);
+        console.log(this.ctx);
     },
 
     start () {
 
     },
     onMouseDown(event){
-        console.log(this.ctx);
-
+        // console.log(event.getLocation());
+        // this.moveTo(event.getLocation().x,event.getLocation().y);
+        // this.strokeColor = cc.Color.RED;
+        var c = this.getComponent(cc.PhysicsPolygonCollider);
+        this.startPosition = event.getLocation();
+        console.log(c.offset);
+        c.offset = cc.v2(this.startPosition.x,this.startPosition.y);
+        this.startDraw = true;
         // event.target.ctx.lineTo(event.getLocation());
     },
     onMouseUp(event){
-        if(event.getButton() === 0){
-            // console.log(event);
-        }
+        console.log(event);
+        // this.lineTo(event.getLocation().x,event.getLocation().y);
+        // this.stroke();
+        this.startDraw = false;
     },
     onMouseMove(event){
-        // console.log(event);
+        if(this.startDraw){
+            this.clear();
+            this.moveTo(this.startPosition.x,this.startPosition.y);
+            this.lineTo(event.getLocation().x,event.getLocation().y);
+            this.stroke();
+            var c = this.getComponent(cc.PhysicsPolygonCollider);
+            console.log(c);
+            console.log(c.offset,this.startPosition,event.getLocation().x,event.getLocation().y);
+        }
     }
     // update (dt) {},
 });
