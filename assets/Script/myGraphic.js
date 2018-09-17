@@ -72,6 +72,7 @@ cc.Class({
             this.lineTo(event.getLocation().x,event.getLocation().y);
             this.stroke();
             var c = this.getComponent(cc.PhysicsPolygonCollider);
+            c.apply()
             console.log(c);
             console.log(c.offset,this.startPosition,event.getLocation().x,event.getLocation().y);
         }

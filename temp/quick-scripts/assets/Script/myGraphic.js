@@ -1,5 +1,5 @@
 (function() {"use strict";var __module = CC_EDITOR ? module : {exports:{}};var __filename = 'preview-scripts/assets/Script/myGraphic.js';var __require = CC_EDITOR ? function (request) {return cc.require(request, require);} : function (request) {return cc.require(request, __filename);};function __define (exports, require, module) {"use strict";
-cc._RF.push(module, 'e15673gI11Ovpy5DQ5vDas+', 'myGraphic', __filename);
+cc._RF.push(module, 'e70c7DtRbZKAp91gOb5nK60', 'myGraphic', __filename);
 // Script/myGraphic.js
 
 "use strict";
@@ -74,6 +74,7 @@ cc.Class({
             this.lineTo(event.getLocation().x, event.getLocation().y);
             this.stroke();
             var c = this.getComponent(cc.PhysicsPolygonCollider);
+            c.apply();
             console.log(c);
             console.log(c.offset, this.startPosition, event.getLocation().x, event.getLocation().y);
         }
