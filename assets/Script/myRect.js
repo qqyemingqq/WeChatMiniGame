@@ -50,7 +50,7 @@ cc.Class({
     onLoad () {
         var ctx = this.node.getComponent(cc.Graphics);
         // console.log(ctx);
-        ctx.rect(0, 0, this.width,this.height);
+        ctx.rect(-this.width/2, -this.height/2, this.width,this.height);
         ctx.strokeColor = cc.Color.BLUE;
         ctx.fillColor = cc.Color.WHITE;
         ctx.fill();
