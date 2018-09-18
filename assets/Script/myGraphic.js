@@ -64,10 +64,10 @@ cc.Class({
             this.stroke();
             var c = this.getComponent(cc.PhysicsPolygonCollider);
             c.offset = cc.v2((this.startPosition.x+event.getLocation().x)/2, (this.startPosition.y+event.getLocation().y)/2);
-            c.points[1] = cc.v2(0, +10).rotateSelf(this.startPosition.angle(event.getLocation()));
+            // c.points[1] = cc.v2(0, +10).rotateSelf(this.startPosition.angle(event.getLocation()));
             c.apply()
-            console.log(this.startPosition.angle(event.getLocation()));
             console.log(c);
+            console.log(new cc.Vec2(this.startPosition).angle(event.getLocation()));
         }
     }
     // update (dt) {},
