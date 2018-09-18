@@ -58,16 +58,20 @@ cc.Class({
     },
     onMouseMove(event) {
         if (this.startDraw) {
+            var red = cc.Vec2.RIGHT.angle(new cc.Vec2(new cc.Vec2(this.startPosition).sub(new cc.Vec2(event.getLocation()))));
             this.clear();
             this.moveTo(this.startPosition.x, this.startPosition.y);
             this.lineTo(event.getLocation().x, event.getLocation().y);
             this.stroke();
             var c = this.getComponent(cc.PhysicsPolygonCollider);
-            c.offset = cc.v2((this.startPosition.x+event.getLocation().x)/2, (this.startPosition.y+event.getLocation().y)/2);
-            // c.points[1] = cc.v2(0, +10).rotateSelf(this.startPosition.angle(event.getLocation()));
+            // c.offset = cc.v2((this.startPosition.x+event.getLocation().x)/2, (this.startPosition.y+event.getLocation().y)/2);
+            c.points[0] = cc.v2(this.startPosition.x, this.startPosition.y-2);
+            c.points[3] = cc.v2(this.startPosition.x, this.startPosition.y+2);
+            c.points[1] = cc.v2(event.getLocation().x, event.getLocation().y-2);
+            c.points[2] = cc.v2(event.getLocation().x, event.getLocation().y+2);
             c.apply()
             console.log(c);
-            console.log(new cc.Vec2(this.startPosition).angle(event.getLocation()));
+            console.log();
         }
     }
     // update (dt) {},
