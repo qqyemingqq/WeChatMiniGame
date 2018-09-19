@@ -65,10 +65,10 @@ cc.Class({
             this.stroke();
             var c = this.getComponent(cc.PhysicsPolygonCollider);
             // c.offset = cc.v2((this.startPosition.x+event.getLocation().x)/2, (this.startPosition.y+event.getLocation().y)/2);
-            c.points[0] = cc.v2(this.startPosition.x, this.startPosition.y-2);
-            c.points[3] = cc.v2(this.startPosition.x, this.startPosition.y+2);
-            c.points[1] = cc.v2(event.getLocation().x, event.getLocation().y-2);
-            c.points[2] = cc.v2(event.getLocation().x, event.getLocation().y+2);
+            c.points[0] = cc.v2(this.startPosition.x, this.startPosition.y-14);
+            c.points[3] = cc.v2(this.startPosition.x, this.startPosition.y+14);
+            c.points[1] = cc.v2(event.getLocation().x, event.getLocation().y-14);
+            c.points[2] = cc.v2(event.getLocation().x, event.getLocation().y+14);
             c.apply()
             console.log(c);
             console.log();
